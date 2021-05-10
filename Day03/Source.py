@@ -270,3 +270,85 @@ for i in range(6):
     t.lt(angle)
     angle += 60
 '''
+# Chapter 07
+# 함수 예제
+'''
+def print_address():
+    print("서울특별시 종로구 1번지")
+    print("파이썬 빌딩 7층")
+    print("홍길동")
+
+
+print_address()
+'''
+'''
+def print_address(name):
+    print("서울특별시 종로구 1번지")
+    print("파이썬 빌딩 7층")
+    print(name)
+
+
+print_address("홍길동")
+'''
+'''
+def calculate_area(radius):
+    area = 3.14 * radius**2
+    return area
+
+r = 5.0
+c_area = calculate_area(r)
+print("반지름이 %.1f인 원의 면적은 %.1f입니다." % (r, c_area))
+'''
+'''
+def get_sum(start, end):
+    sum = 0
+    for i in range(start, end+1):
+        sum += i
+    return sum
+
+print(get_sum(1, 10))
+'''
+# Lab 사각형을 그리는 함수 작성하기
+'''
+import turtle
+t = turtle.Turtle()
+t.shape("turtle")
+
+def square(length):
+    for i in range(4):
+        t.fd(length)
+        t.lt(90)
+
+for i in range(-200, 201, 200):
+    t.up()
+    t.goto(i, 0)
+    t.down()
+    square(100)
+turtle.mainloop()
+'''
+# Lab n-각형을 그리는 함수 작성하기
+'''
+import turtle
+t = turtle.Turtle(shape='turtle')
+
+def n_polygon(n, length):
+    for i in range(n):
+        t.fd(length)
+        t.lt(360//n)
+
+for i in range(18):
+    t.lt(20)
+    n_polygon(6, 100)
+turtle.mainloop()
+'''
+# 함수에서 전역변수의 값을 변경하고자 할 경우
+'''
+def calculate_area(radius):
+    global area
+    area = 3.14 * radius**2
+    return
+area = 0
+r = float(input("원의 반지름 : "))
+calculate_area(r)
+print(area)
+'''
